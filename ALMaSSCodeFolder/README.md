@@ -3,8 +3,11 @@ Here follows a description of what I have added to each file!
 
 In the file-duo `GeneticMaterial.cpp` and `GeneticMaterial.h`:  
 * A new class `GeneticMaterialNEW` containing 2 genomes and a paternal and maternal lineage ID, with functions:
-  - A constructor function `GeneticMaterialNew()`;
-  - `InitializeGenome()`;
+  - A constructor function `GeneticMaterialNew()`; <br>
+Calls `InitializeGenome();`.
+  - `InitializeGenome()`; <br>
+    Randomly generates two genomes for the vole from a file of allele frequency input. <br>
+    If an empty string is passed to the `InitializeGenome()`; the vole keeps the genome it already has. (For keeping the inherited genes from parents, if the vole is an offspring.
   - `PrintGenomes()`;
   - `EraseGenomes()`;
   - `InitializeTestingGenomesFemale()`;
@@ -37,7 +40,7 @@ In the file-duo `Vole_all.cpp` and `Vole_all.h`:
   - `ychromosome lineage`
 
 * Added to the `Vole_Female::st_Lactating()` function (which is used for giving birth):
-  - Voles record their birthplace.
+  - Voles record their birthplace into yborn and xborn.
   - Voles inherit a generation count +1 from their mother.
   - The mother vole recombines her genes and the father vole's genes with the function `MakeGameteSimple()`.
   - The mother passes on her mitochondrial lineage and the father's ychromosome lineage to the offspring.
