@@ -2,37 +2,45 @@ This folder contains the ALMaSS files that I have made changes to during my thes
 Here follows a description of what I have added to each file!  
 
 In the file-duo `GeneticMaterial.cpp` and `GeneticMaterial.h`:  
-* A new class "GeneticMaterialNEW" with functions:
-  - A constructor function GeneticMaterialNew();
-  - InitializeGenome();
-  - PrintGenomes();
-  - EraseGenomes();
-  - InitializeTestingGenomesFemale();
-  - InitalizeTestingGenomesMale();
-  - MakeGameteSimple();
+* A new class `GeneticMaterialNEW` containing 2 genomes and a paternal and maternal lineage ID, with functions:
+  - A constructor function `GeneticMaterialNew()`;
+  - `InitializeGenome()`;
+  - `PrintGenomes()`;
+  - `EraseGenomes()`;
+  - `InitializeTestingGenomesFemale()`;
+  - `InitializeTestingGenomesMale()`;
+  - `MakeGameteSimple()`;
 
 In the file-duo `VolePopulationManager.cpp` and `VolePopulationManager.h`:  
 * New functions for the class PopulationManager:
-  - Four_QuadrantBasedGeneticOutput();
-  - Nine_QuadrantBasedGeneticOutput();
-  - FourQuadrantsPopulationSizeProbe();
-  - NineQuadrantsPopulationSizeProbe();
-  - MakeAlleleInputFile();
-  - CompareGenomes();
-  - GenerationCountOutput();
-  - LineagesOutput()
+  - `Four_QuadrantBasedGeneticOutput()`;
+  - `Nine_QuadrantBasedGeneticOutput()`;
+  - `FourQuadrantsPopulationSizeProbe()`;
+  - `NineQuadrantsPopulationSizeProbe()`;
+  - `MakeAlleleInputFile()`;
+  - `CompareGenomes()`;
+  - `GenerationCountOutput()`;
+  - `LineagesOutput()`;
 
-In the file-duo `Vole_all.cpp` and `Vole_all.h`:
-* Each vole "class struct_Vole_Adult" got given the attributes:
-  -yborn (y coordinate of birth)
-  -xborn (x coordinate of birth)
-  - new_Genes, an instance of GeneticMaterialNEW();
-  - new_Mates_Genes, an instance of GeneticMaterialNEW();
-* Added to the Vole_Female::st_Lactating();-function (which is used for giving birth):
+* Added to the PopulationManager functions `PopulationManager::CreateObjects` and `PopulationManager::CreateObjectsInit`:
+  - A vole that is being born from parents keeps the genome from its parents' gametes, so it calls the construction function `NAME` with an empty string for the filename of the allele frequency input.
+  - A vole under initialization calls the function with a string that contains the allele frequency file and will get its own genome based on allele frequency inputs.
+
+In the file-duo `Vole_all.cpp` and `Vole_all.h`:  
+* Each vole `class struct_Vole_Adult` was given the attributes:
+  - `yborn` (y coordinate of birth)
+  - `xborn` (x coordinate of birth)
+  - `new_Genes`, an instance of `GeneticMaterialNEW`
+  - `new_Mates_Genes`, an instance of `GeneticMaterialNEW`
+  - `GenerationCount`
+  - `mitochondrial lineage`
+  - `ychromosome lineage`
+
+* Added to the `Vole_Female::st_Lactating()` function (which is used for giving birth):
   - Voles record their birthplace.
   - Voles inherit a generation count +1 from their mother.
-  - The mother vole takes her genes and and recombines them, and takes the father vole's genes and recombines those with the function MakeGameteSimple();
-  - The mother also passes on her mitochondrial lineage and the fathers ychromosome lineage to the offspring.
+  - The mother vole recombines her genes and the father vole's genes with the function `MakeGameteSimple()`.
+  - The mother passes on her mitochondrial lineage and the father's ychromosome lineage to the offspring.
 
 In the file-duo `Vole_toletoc.cpp` and `Vole_toletoc.h`:  
-* The only modification here is that when a vole looks up 
+* The only modification here is that when a vole looks up ...
