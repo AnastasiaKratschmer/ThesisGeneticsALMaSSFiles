@@ -22,7 +22,12 @@ In the file-duo `VolePopulationManager.cpp` and `VolePopulationManager.h`:
   - GenerationCountOutput();
   - LineagesOutput()
 
-In the file-duo `Vole_all.cpp` and `Vole_all.h`:  
+In the file-duo `Vole_all.cpp` and `Vole_all.h`:
+* Each vole "class struct_Vole_Adult" got given the attributes:
+  -yborn (y coordinate of birth)
+  -xborn (x coordinate of birth)
+  - new_Genes, an instance of GeneticMaterialNEW();
+  - new_Mates_Genes, an instance of GeneticMaterialNEW();
 * Added to the Vole_Female::st_Lactating();-function (which is used for giving birth):
   - Voles record their birthplace.
   - Voles inherit a generation count +1 from their mother.
