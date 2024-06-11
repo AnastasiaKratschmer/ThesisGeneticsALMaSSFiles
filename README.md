@@ -1,6 +1,10 @@
 # ThesisGeneticsALMaSSFiles
 
-This repository documents the files from my thesis that are not directly the C++ code written for ALMaSS. <br>
+This repository documents code from my thesis, implementing genetics in the ALMaSS simulation. 
+
+The folder `ALMaSSCodeFolder/` contains the files from ALMaSS that I have made changes in. It also provides a description of which parts of the code I wrote. Read more in the README in there! <br> <br>
+
+The folder `Misc/` contains code I used to run the ALMaSS simulations, and to handle and analyse the output files. See more in the README in there!
 
 The `singularity.def` has the defintions for the singularity shell in which the ALMaSS code was run. To make a similar singularity on your machine run: <br>
 `singularity build --fakeroot singularity.sif singularity.def`. <br>
