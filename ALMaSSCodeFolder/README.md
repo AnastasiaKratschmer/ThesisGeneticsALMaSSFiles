@@ -6,7 +6,7 @@ In the file-duo `GeneticMaterial.cpp` and `GeneticMaterial.h`:
   - A constructor function `GeneticMaterialNew()`; <br>
 Calls `InitializeGenome();`.
   - `InitializeGenome()`; <br>
-    Randomly generates two genomes for the vole from a file of allele frequency input. <br>
+    Randomly generates two genomes for the vole from a file of allele frequency input, by producing a discrete distribution with the probabilites provided by the allele frequency intput. <br>
     If an empty string is passed to the `InitializeGenome()`; the vole keeps the genome it already has. (For keeping the inherited genes from parents, if the vole is an offspring.)
   - `PrintGenomes()`;
     Prints genenomes in cout, mainly for testing.
@@ -38,15 +38,17 @@ In the file-duo `VolePopulationManager.cpp` and `VolePopulationManager.h`:
     * FIS values of all quadrants.
     * Genome-wide, population-wide average and observed and expected heterozygosity rate.
   - `FourQuadrantsPopulationSizeProbe()`;
+    This functions counts how many voles are present in each quadrant of four at sampling time, divided by males and females. Also counts how many voles are excluded by being in the buffer zone.
   - `NineQuadrantsPopulationSizeProbe()`;
-  
+  This functions counts how many voles are present in each of nine quadrant at sampling time, divided by males and females.
   - `MakeAlleleInputFile()`;
+    This function is to be called very early in the population initiation (before creating voles) to generate allele frequencies for each chromosome and locus. This funciton takes two sets of two alpha parameters. Half of the chromosomes' allele frequencies are generated according to the first set of alpha parameters, and the second half is generated according to the second set of alpha parameters. The alpha-parameters are used in making a beta distribution from which an allele frequency is drawn. In this project, we use di-allelic loci, so the allele frequency of the other allele is then given by the 1-first allele frequency. 
   - `CompareGenomes()`;
     This function takes the full genome of each vole recorded by `Four_QuadrantBasedGeneticOutput()`; og `Nine_QuadrantBasedGeneticOutput()`; samples 500 random voles, and compares their genomes. For each locus, a score is given based on similarity between the two voles.
 * If they share both alleles: 2 points
 * If they share one allele: 1 point
 * If they share no allele: 0 points.
-The sum is then divided by the max possible score (256) to get a normalized similarity score between 0 and 1.
+The sum is then divided by the max possible score (256) to get a normalized similarity score between 0 and 1. Outputs a file of comma seperates values of the position of the voles, the distance between them, and their similarity score.
   - `GenerationCountOutput()`;
   - `LineagesOutput()`;
 
