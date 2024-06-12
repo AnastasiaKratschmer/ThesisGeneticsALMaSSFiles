@@ -7,12 +7,17 @@ In the file-duo `GeneticMaterial.cpp` and `GeneticMaterial.h`:
 Calls `InitializeGenome();`.
   - `InitializeGenome()`; <br>
     Randomly generates two genomes for the vole from a file of allele frequency input. <br>
-    If an empty string is passed to the `InitializeGenome()`; the vole keeps the genome it already has. (For keeping the inherited genes from parents, if the vole is an offspring.
+    If an empty string is passed to the `InitializeGenome()`; the vole keeps the genome it already has. (For keeping the inherited genes from parents, if the vole is an offspring.)
   - `PrintGenomes()`;
+    Prints genenomes in cout, mainly for testing.
   - `EraseGenomes()`;
+    Erases genomes, maninly for testing.
   - `InitializeTestingGenomesFemale()`;
+    A function that gives all females initialized a genome og just 0's and one of just 1's. For testing.
   - `InitializeTestingGenomesMale()`;
+    A function that gives all males initialized a genome og just 2's and one of just 3's. For testing. These two testing genome functions practical for testing inheritance dynamics, for instance for testing the function `MakeGameteSimple()`;
   - `MakeGameteSimple()`;
+    This function makes a gamete from an instance of `GeneticMaterialNew`. It takes the two genomes contained in the `GeneticMaterialNew` (Genome0 and Genome1) and for each locus, it is randomly decided if the allele from Genome0 or Genome1 is going to be included into the gamete. This means, that there is is no linkage in inheritance. This function is applied to the vole mother's `GeneticMaterialNew` and the vole father's `GeneticMaterialNew` when offspring are being produced.
 
 In the file-duo `VolePopulationManager.cpp` and `VolePopulationManager.h`:  
 * New functions for the class PopulationManager:
