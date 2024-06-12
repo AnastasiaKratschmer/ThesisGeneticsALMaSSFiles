@@ -1,5 +1,5 @@
 This folder contains the ALMaSS files that I have made changes to during my thesis.  
-Here follows a description of what I have added to each file!  
+Here follows a description of what I have added to each file!   
 
 In the file-duo `GeneticMaterial.cpp` and `GeneticMaterial.h`:  
 * A new class `GeneticMaterialNEW` containing 2 genomes and a paternal and maternal lineage ID, with functions:
