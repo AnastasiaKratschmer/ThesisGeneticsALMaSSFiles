@@ -53,6 +53,10 @@ The sum is then divided by the max possible score (256) to get a normalized simi
     Outputs the generation count for the voles.
   - `LineagesOutput()`;
     Outputs the paternal and maternal lineages of the voles at a provided sampling rate (here: 1).
+  - `Four_AssignQuadrant();`
+    Is a function that gets called by `Four_QuadrantBasedGeneticOutput();` and FourQuadrantsPopulationSizeProbe();`       for putting each vole into a quadrant (0-3) in the 2*2 quadrant grid with buffer zones.
+  - `Nine_AssignQuadrant();`
+    Is a function that gets called by `Nine_QuadrantBasedGeneticOutput();` and NineQuadrantsPopulationSizeProbe();`       for putting each vole into a quadrant (0-3) in the 2*2 quadrant grid with buffer zones.
 
 * Added to the PopulationManager functions `PopulationManager::CreateObjects` and `PopulationManager::CreateObjectsInit`:
   - A vole that is being born from parents keeps the genome from its parents' gametes, so it calls the construction function `NAME` with an empty string for the filename of the allele frequency input.
