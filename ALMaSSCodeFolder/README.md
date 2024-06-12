@@ -38,10 +38,15 @@ In the file-duo `VolePopulationManager.cpp` and `VolePopulationManager.h`:
     * FIS values of all quadrants.
     * Genome-wide, population-wide average and observed and expected heterozygosity rate.
   - `FourQuadrantsPopulationSizeProbe()`;
-    This function takes the full genome of each vole recorded by `Four_QuadrantBasedGeneticOutput()`;, samples 500 random voles, and compares their genomes.
   - `NineQuadrantsPopulationSizeProbe()`;
+  
   - `MakeAlleleInputFile()`;
   - `CompareGenomes()`;
+    This function takes the full genome of each vole recorded by `Four_QuadrantBasedGeneticOutput()`; og `Nine_QuadrantBasedGeneticOutput()`; samples 500 random voles, and compares their genomes. For each locus, a score is given based on similarity between the two voles.
+* If they share both alleles: 2 points
+* If they share one allele: 1 point
+* If they share no allele: 0 points.
+The sum is then divided by the max possible score (256) to get a normalized similarity score between 0 and 1.
   - `GenerationCountOutput()`;
   - `LineagesOutput()`;
 
