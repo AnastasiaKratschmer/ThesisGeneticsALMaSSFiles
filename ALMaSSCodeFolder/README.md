@@ -9,9 +9,9 @@ Calls `InitializeGenome();`.
     Randomly generates two genomes for the vole from a file of allele frequency input, by producing a discrete distribution with the probabilites provided by the allele frequency intput. <br>
     If an empty string is passed to the `InitializeGenome()`; the vole keeps the genome it already has. (For keeping the inherited genes from parents, if the vole is an offspring.)
   - `PrintGenomes()`;
-    Prints genenomes in cout, mainly for testing.
+    Prints genenomes in cout (the terminal), mainly for testing.
   - `EraseGenomes()`;
-    Erases genomes, maninly for testing.
+    Erases genomes, mainly for testing.
   - `InitializeTestingGenomesFemale()`;
     A function that gives all females initialized a genome og just 0's and one of just 1's. For testing.
   - `InitializeTestingGenomesMale()`;
