@@ -71,12 +71,12 @@ In the file-duo `Vole_all.cpp` and `Vole_all.h`:
   - `GenerationCount`
   - `mitochondrial lineage`
   - `ychromosome lineage`
-___________________________________________________________
+  
 * Added to the `Vole_Female::st_Lactating()` function (which is used for giving birth):
   - Voles record their birthplace into yborn and xborn.
   - Voles inherit a generation count +1 from their mother.
   - The mother vole recombines her genes and the father vole's genes with the function `MakeGameteSimple()`.
   - The mother passes on her mitochondrial lineage and the father's ychromosome lineage to the offspring.
-
+___________________________________________________________
 In the file-duo `Vole_toletoc.cpp` and `Vole_toletoc.h`:  
 * The only modification here is that when a vole looks up the movement quality of a large road, it will in 10% of lookup cases draw the value "1" (the vole can then walk onto the road) and in 90% of the cases draw the value "-1" (the vole cannot walk onto to road). 
