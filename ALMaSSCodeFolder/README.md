@@ -1,6 +1,6 @@
 This folder contains the ALMaSS files that I have made changes to during my thesis.  
 Here follows a description of what I have added to each file!   
-
+_____________________________________________-
 In the file-duo `GeneticMaterial.cpp` and `GeneticMaterial.h`:  
 * A new class `GeneticMaterialNEW` containing 2 genomes and a paternal and maternal lineage ID, with functions:
   - A constructor function `GeneticMaterialNew()`; <br>
@@ -18,7 +18,7 @@ Calls `InitializeGenome();`.
     A function that gives all males initialized a genome og just 2's and one of just 3's. For testing. These two testing genome functions practical for testing inheritance dynamics, for instance for testing the function `MakeGameteSimple()`;
   - `MakeGameteSimple()`;
     This function makes a gamete from an instance of `GeneticMaterialNew`. It takes the two genomes contained in the `GeneticMaterialNew` (Genome0 and Genome1) and for each locus, it is randomly decided if the allele from Genome0 or Genome1 is going to be included into the gamete. This means, that there is is no linkage in inheritance. This function is applied to the vole mother's `GeneticMaterialNew` and the vole father's `GeneticMaterialNew` when offspring are being produced.
-
+___________________________________________
 In the file-duo `VolePopulationManager.cpp` and `VolePopulationManager.h`:  
 * New functions for the class PopulationManager:
   - `Four_QuadrantBasedGeneticOutput()`;
@@ -61,7 +61,7 @@ The sum is then divided by the max possible score (256) to get a normalized simi
 * Added to the PopulationManager functions `PopulationManager::CreateObjects` and `PopulationManager::CreateObjectsInit`:
   - A vole that is being born from parents keeps the genome from its parents' gametes, so it calls the construction function `NAME` with an empty string for the filename of the allele frequency input.
   - A vole under initialization calls the function with a string that contains the allele frequency file and will get its own genome based on allele frequency inputs.
-
+__________________________________________________________
 In the file-duo `Vole_all.cpp` and `Vole_all.h`:  
 * Each vole `class struct_Vole_Adult` was given the attributes:
   - `yborn` (y coordinate of birth)
@@ -71,7 +71,7 @@ In the file-duo `Vole_all.cpp` and `Vole_all.h`:
   - `GenerationCount`
   - `mitochondrial lineage`
   - `ychromosome lineage`
-
+___________________________________________________________
 * Added to the `Vole_Female::st_Lactating()` function (which is used for giving birth):
   - Voles record their birthplace into yborn and xborn.
   - Voles inherit a generation count +1 from their mother.
