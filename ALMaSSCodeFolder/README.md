@@ -30,7 +30,15 @@ In the file-duo `VolePopulationManager.cpp` and `VolePopulationManager.h`:
     * FIS values of all quadrants.
     * Genome-wide, population-wide average and observed and expected heterozygosity rate.
   - `Nine_QuadrantBasedGeneticOutput()`;
+    This function divides the landscape map into 9 (3*3) different quadrants WITHOUT buffer zones between them and extensively records the genetics present and other information about the voles in them. It records:
+    * Birth postition and current position of the voles (for inference of movement).
+    * The full genome of each vole as well as its position in the map.
+    * The allele frequencies present in each quadrant.
+    * FST values between all pairs of quadrants. 
+    * FIS values of all quadrants.
+    * Genome-wide, population-wide average and observed and expected heterozygosity rate.
   - `FourQuadrantsPopulationSizeProbe()`;
+    This function takes the full genome of each vole recorded by `Four_QuadrantBasedGeneticOutput()`;, samples 500 random voles, and compares their genomes.
   - `NineQuadrantsPopulationSizeProbe()`;
   - `MakeAlleleInputFile()`;
   - `CompareGenomes()`;
