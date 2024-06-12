@@ -50,7 +50,9 @@ In the file-duo `VolePopulationManager.cpp` and `VolePopulationManager.h`:
 * If they share no allele: 0 points.
 The sum is then divided by the max possible score (256) to get a normalized similarity score between 0 and 1. Outputs a file of comma seperates values of the position of the voles, the distance between them, and their similarity score.
   - `GenerationCountOutput()`;
+    Outputs the generation count for the voles.
   - `LineagesOutput()`;
+    Outputs the paternal and maternal lineages of the voles at a provided sampling rate (here: 1).
 
 * Added to the PopulationManager functions `PopulationManager::CreateObjects` and `PopulationManager::CreateObjectsInit`:
   - A vole that is being born from parents keeps the genome from its parents' gametes, so it calls the construction function `NAME` with an empty string for the filename of the allele frequency input.
@@ -73,4 +75,4 @@ In the file-duo `Vole_all.cpp` and `Vole_all.h`:
   - The mother passes on her mitochondrial lineage and the father's ychromosome lineage to the offspring.
 
 In the file-duo `Vole_toletoc.cpp` and `Vole_toletoc.h`:  
-* The only modification here is that when a vole looks up ...
+* The only modification here is that when a vole looks up the movement quality of a large road, it will in 10% of lookup cases draw the value "1" (the vole can then walk onto the road) and in 90% of the cases draw the value "-1" (the vole cannot walk onto to road). 
