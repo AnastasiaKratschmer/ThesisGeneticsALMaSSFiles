@@ -21,7 +21,7 @@ Calls `InitializeGenome();`.
 ___________________________________________
 In the file-duo `VolePopulationManager.cpp` and `VolePopulationManager.h`:  
 * New functions for the class PopulationManager:
-  - `Four_QuadrantBasedGeneticOutput()`;
+  - `Four_QuadrantBasedGeneticOutput()`;(line 3551 to 4024 in the cpp-file)
     This function divides the landscape map into 4 different quadrants with buffer zones between them and extensively records the genetics present and other information about the voles in them. It records:
     * Birth postition and current position of the voles (for inference of movement).
     * The full genome of each vole as well as its position in the map.
@@ -29,7 +29,7 @@ In the file-duo `VolePopulationManager.cpp` and `VolePopulationManager.h`:
     * FST values between all pairs of quadrants. 
     * FIS values of all quadrants.
     * Genome-wide, population-wide average and observed and expected heterozygosity rate.
-  - `Nine_QuadrantBasedGeneticOutput()`;
+  - `Nine_QuadrantBasedGeneticOutput()`; (line 4029-4463 in the ccp-file)
     This function divides the landscape map into 9 (3*3) different quadrants WITHOUT buffer zones between them and extensively records the genetics present and other information about the voles in them. It records:
     * Birth postition and current position of the voles (for inference of movement).
     * The full genome of each vole as well as its position in the map.
@@ -37,28 +37,28 @@ In the file-duo `VolePopulationManager.cpp` and `VolePopulationManager.h`:
     * FST values between all pairs of quadrants. 
     * FIS values of all quadrants.
     * Genome-wide, population-wide average and observed and expected heterozygosity rate.
-  - `FourQuadrantsPopulationSizeProbe()`;
+  - `FourQuadrantsPopulationSizeProbe()`; (line 4652-4782 in cpp-file)
     This functions counts how many voles are present in each quadrant of four at sampling time, divided by males and females. Also counts how many voles are excluded by being in the buffer zone.
-  - `NineQuadrantsPopulationSizeProbe()`;
+  - `NineQuadrantsPopulationSizeProbe()`; (line 4783-4902 in cpp-file)
   This functions counts how many voles are present in each of nine quadrant at sampling time, divided by males and females.
-  - `MakeAlleleInputFile()`;
+  - `MakeAlleleInputFile()`; (line 4469-4540 in the cpp-file)
     This function is to be called very early in the population initiation (before creating voles) to generate allele frequencies for each chromosome and locus. This funciton takes two sets of two alpha parameters. Half of the chromosomes' allele frequencies are generated according to the first set of alpha parameters, and the second half is generated according to the second set of alpha parameters. The alpha-parameters are used in making a beta distribution from which an allele frequency is drawn. In this project, we use di-allelic loci, so the allele frequency of the other allele is then given by the 1-first allele frequency. 
-  - `CompareGenomes()`;
+  - `CompareGenomes()`; (line in 4543-4650 cpp-file)
     This function takes the full genome of each vole recorded by `Four_QuadrantBasedGeneticOutput()`; og `Nine_QuadrantBasedGeneticOutput()`; samples 500 random voles, and compares their genomes. For each locus, a score is given based on similarity between the two voles.
     * If they share both alleles: 2 points
     * If they share one allele: 1 point
     * If they share no allele: 0 points. <br>
     The sum is then divided by the max possible score (256) to get a normalized similarity score between 0 and 1. Outputs a file   of   comma seperates values of the position of the voles, the distance between them, and their similarity score.
-  - `GenerationCountOutput()`;
+  - `GenerationCountOutput()`; (line 4904-4953 in the cpp-file)
     Outputs the generation count for the voles.
-  - `LineagesOutput()`;
+  - `LineagesOutput()`; (line 4955-5008 in the ccp-file)
     Outputs the paternal and maternal lineages of the voles at a provided sampling rate (here: 1).
-  - `Four_AssignQuadrant();`
+  - `Four_AssignQuadrant();` ( line 5010-5032 in the cpp-file)
     Is a function that gets called by `Four_QuadrantBasedGeneticOutput();` and FourQuadrantsPopulationSizeProbe();`       for putting each vole into a quadrant (0-3) in the 2*2 quadrant grid with buffer zones.
-  - `Nine_AssignQuadrant();`
+  - `Nine_AssignQuadrant();` (line 5034-5062 in the cpp-file)
     Is a function that gets called by `Nine_QuadrantBasedGeneticOutput();` and NineQuadrantsPopulationSizeProbe();`       for putting each vole into a quadrant (0-3) in the 2*2 quadrant grid with buffer zones.
 
-* Added to the PopulationManager functions `PopulationManager::CreateObjects` and `PopulationManager::CreateObjectsInit`:
+* Added to the PopulationManager functions `PopulationManager::CreateObjects()` (line 2750-2876 in the cpp-file) and `PopulationManager::CreateObjectsInit()`(line 2883-2931 in the cpp-file):
   - A vole that is being born from parents keeps the genome from its parents' gametes, so it calls the construction function (`GeneticMaterialNew()`;) with an empty string for the filename of the allele frequency input.
   - A vole under initialization calls the function with a string that contains the allele frequency file and will get its own genome based on allele frequency inputs.
 __________________________________________________________
