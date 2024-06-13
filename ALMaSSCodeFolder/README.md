@@ -45,10 +45,10 @@ In the file-duo `VolePopulationManager.cpp` and `VolePopulationManager.h`:
     This function is to be called very early in the population initiation (before creating voles) to generate allele frequencies for each chromosome and locus. This funciton takes two sets of two alpha parameters. Half of the chromosomes' allele frequencies are generated according to the first set of alpha parameters, and the second half is generated according to the second set of alpha parameters. The alpha-parameters are used in making a beta distribution from which an allele frequency is drawn. In this project, we use di-allelic loci, so the allele frequency of the other allele is then given by the 1-first allele frequency. 
   - `CompareGenomes()`;
     This function takes the full genome of each vole recorded by `Four_QuadrantBasedGeneticOutput()`; og `Nine_QuadrantBasedGeneticOutput()`; samples 500 random voles, and compares their genomes. For each locus, a score is given based on similarity between the two voles.
-* If they share both alleles: 2 points
-* If they share one allele: 1 point
-* If they share no allele: 0 points.
-The sum is then divided by the max possible score (256) to get a normalized similarity score between 0 and 1. Outputs a file of comma seperates values of the position of the voles, the distance between them, and their similarity score.
+    * If they share both alleles: 2 points
+    * If they share one allele: 1 point
+    * If they share no allele: 0 points. <br>
+    The sum is then divided by the max possible score (256) to get a normalized similarity score between 0 and 1. Outputs a file   of   comma seperates values of the position of the voles, the distance between them, and their similarity score.
   - `GenerationCountOutput()`;
     Outputs the generation count for the voles.
   - `LineagesOutput()`;
@@ -59,7 +59,7 @@ The sum is then divided by the max possible score (256) to get a normalized simi
     Is a function that gets called by `Nine_QuadrantBasedGeneticOutput();` and NineQuadrantsPopulationSizeProbe();`       for putting each vole into a quadrant (0-3) in the 2*2 quadrant grid with buffer zones.
 
 * Added to the PopulationManager functions `PopulationManager::CreateObjects` and `PopulationManager::CreateObjectsInit`:
-  - A vole that is being born from parents keeps the genome from its parents' gametes, so it calls the construction function `NAME` with an empty string for the filename of the allele frequency input.
+  - A vole that is being born from parents keeps the genome from its parents' gametes, so it calls the construction function (`GeneticMaterialNew()`;) with an empty string for the filename of the allele frequency input.
   - A vole under initialization calls the function with a string that contains the allele frequency file and will get its own genome based on allele frequency inputs.
 __________________________________________________________
 In the file-duo `Vole_all.cpp` and `Vole_all.h`:  
