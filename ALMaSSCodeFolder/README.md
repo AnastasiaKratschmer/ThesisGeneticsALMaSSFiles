@@ -3,20 +3,20 @@ Here follows a description of what I have added to each file!
 _____________________________________________
 In the file-duo `GeneticMaterial.cpp` and `GeneticMaterial.h`:  
 * A new class `GeneticMaterialNEW` containing 2 genomes and a paternal and maternal lineage ID, with functions:
-  - A constructor function `GeneticMaterialNew()`; <br>
+  - A constructor function `GeneticMaterialNew()`; (line 66-74 in the cpp-file) <br>
 Calls `InitializeGenome();`.
-  - `InitializeGenome()`; <br>
+  - `InitializeGenome()`; (line 85-132 in the ccp-file) <br>
     Randomly generates two genomes for the vole from a file of allele frequency input, by producing a discrete distribution with the probabilites provided by the allele frequency intput. <br>
     If an empty string is passed to the `InitializeGenome()`; the vole keeps the genome it already has. (For keeping the inherited genes from parents, if the vole is an offspring.)
-  - `PrintGenomes()`;
+  - `PrintGenomes()`; (line 146-163 in the cpp-file)
     Prints genenomes in cout (the terminal), mainly for testing.
-  - `EraseGenomes()`;
+  - `EraseGenomes()`; (line 76-79 in the cpp-file)
     Erases genomes, mainly for testing.
-  - `InitializeTestingGenomesFemale()`;
+  - `InitializeTestingGenomesFemale()`; (line 140-144 in the cpp file)
     A function that gives all females initialized a genome og just 0's and one of just 1's. For testing.
-  - `InitializeTestingGenomesMale()`;
+  - `InitializeTestingGenomesMale()`; (line 134-137 in the cpp-file)
     A function that gives all males initialized a genome og just 2's and one of just 3's. For testing. These two testing genome functions practical for testing inheritance dynamics, for instance for testing the function `MakeGameteSimple()`;
-  - `MakeGameteSimple()`;
+  - `MakeGameteSimple()`; (line 166-182 in the cpp-file)
     This function makes a gamete from an instance of `GeneticMaterialNew`. It takes the two genomes contained in the `GeneticMaterialNew` (Genome0 and Genome1) and for each locus, it is randomly decided if the allele from Genome0 or Genome1 is going to be included into the gamete. This means, that there is is no linkage in inheritance. This function is applied to the vole mother's `GeneticMaterialNew` and the vole father's `GeneticMaterialNew` when offspring are being produced.
 ___________________________________________
 In the file-duo `VolePopulationManager.cpp` and `VolePopulationManager.h`:  
