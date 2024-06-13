@@ -63,20 +63,23 @@ In the file-duo `VolePopulationManager.cpp` and `VolePopulationManager.h`:
   - A vole under initialization calls the function with a string that contains the allele frequency file and will get its own genome based on allele frequency inputs.
 __________________________________________________________
 In the file-duo `Vole_all.cpp` and `Vole_all.h`:  
-* Each vole `class struct_Vole_Adult` was given the attributes:
-  - `yborn` (y coordinate of birth)
-  - `xborn` (x coordinate of birth)
+* Each vole `class struct_Vole_Adult` (line 122-152 in the header file) was given the attributes:
   - `new_Genes`, an instance of `GeneticMaterialNEW`
   - `new_Mates_Genes`, an instance of `GeneticMaterialNEW`
+  - `yborn` (y coordinate of birth)
+  - `xborn` (x coordinate of birth)
   - `GenerationCount`
   - `mitochondrial lineage`
   - `ychromosome lineage`
   
-* Added to the `Vole_Female::st_Lactating()` function (which is used for giving birth):
+* Added to the `Vole_Female::st_Lactating()` function (which is used for giving birth) (line 2067-2210 in the cpp-file):
   - Voles record their birthplace into yborn and xborn.
   - Voles inherit a generation count +1 from their mother.
   - The mother vole recombines her genes and the father vole's genes with the function `MakeGameteSimple()`.
   - The mother passes on her mitochondrial lineage and the father's ychromosome lineage to the offspring.
+* Numerous small adjustments to enable inheritance in many different constructor functions.
 ___________________________________________________________
-In the file-duo `Vole_toletoc.cpp` and `Vole_toletoc.h`:  
-* The only modification here is that when a vole looks up the movement quality of a large road, it will in 10% of lookup cases draw the value "1" (the vole can then walk onto the road) and in 90% of the cases draw the value "-1" (the vole cannot walk onto to road). 
+In the file-duo `Vole_toletoc.cpp` and `Vole_toletoc.h`: <br>
+In this file-duo, only two minor changes were:
+* In the function `vole_tole_move_quality` (line 5-348 in the cpp-file) that when a vole looks up the movement quality of a large road, it will in 10% of lookup cases draw the value "1" (the vole can then walk onto the road) and in 90% of the cases draw the value "-1" (the vole cannot walk onto to road).
+* In the `vole_tole_assess_barrier` function (line 818- 966 in the cpp-file), the boolean barrier status of the landscape category "large road" was set as "false" to enable movement across large roads.
